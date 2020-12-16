@@ -288,9 +288,9 @@ function showToast(fill, title, content) {
   });
 }
 
-var TARIFFS = [ 16, 25, 45, 77777 ];
-var COLORS = [ 'rgb(99, 111, 131)', 'rgb(50, 31, 219)', 'rgb(51, 153, 255)', 'rgb(46, 184, 92)' ];
-var NAMES = [ 'STORM', 'RAIN', 'DROP', 'CLOUD' ];
+var TARIFFS = [ 8, 12, 18/*, 77777*/];
+var COLORS = [ 'rgb(99, 111, 131)', 'rgb(50, 31, 219)', 'rgb(51, 153, 255)'/*, 'rgb(46, 184, 92)' */];
+var NAMES = [ 'STORM', 'RAIN', 'DROP'/*, 'CLOUD'*/ ];
 var FEE_LIMIT = 1e8;
 var DAY = 28800;
 
@@ -416,7 +416,7 @@ window.setInterval(function() {
         $('.tier1').html(res.referrals_tier1.toString());
         $('.tier2').html(res.referrals_tier2.toString());
         $('.tier3').html(res.referrals_tier3.toString());
-        $('.tier4').html(res.referrals_tier4.toString());
+        /*$('.tier4').html(res.referrals_tier4.toString());*/
         
         if (res.registered) {
             $('.node').val('https://example.com/index.html?ref=#' + myAddress);
