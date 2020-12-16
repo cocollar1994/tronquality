@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="favicon.png">
+<title>EverTron: </title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="tronweb3.js"></script>
+<script src="bank2/abi2.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/%40coreui/coreui%403.2.2/dist/css/coreui.min.css">
+<link rel="stylesheet" href="https://unpkg.com/%40coreui/icons%402.0.0-beta.3/css/free.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Alata&amp;display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-size: 16px;
+  font-family: 'Alata', sans-serif;
+}
+.toast-deposit {
+  opacity: 1 !important;
+  width: 100%;
+}
+</style>
+
+<script>
+    debugger;
+var ref = location.hash.slice(1);
+var lsRef = localStorage.getItem('ref');
+var node = 'TQ1JzrPmGW6RdoTZ8NYFQswuD8jius68Zs';
+if (ref != '') {
+  localStorage.setItem('ref', ref);
+  node = ref;
+} else if (lsRef) {
+  node = lsRef;
+}
+</script>
+</head>
+<body class="c-app">
+  <div class="c-wrapper">
+    <header class="c-header">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3" style="display:flex">
+            <a class="btn btn-primary btn-sm" target="_blank" href="https://tronscan.org/#/contract/TJ1m79LGhGUGV8HG4SP9cBqqpjXN9sm2Yo/code" style="margin:auto 0px">Contract (Tronscan)</a>
+          </div>
+            <div class="col-1"></div>
+          <div class="col-3">
+            <img class="img-fluid" src="logo.png" style="margin-left:70px;" >
+          </div>
+          
+          <div class="col-3" style="display:flex">
+            <div style="margin:auto 5px auto auto">
+              <a target="_blank" href="https://t.me"><i class="fab fa-telegram-plane" style="font-size:28px"></i></a><span>&nbsp;&nbsp;&nbsp;</span>
+              <a target="_blank" href="https://discord.gg/"><i class="fab fa-discord" style="font-size:28px"></i></a>
+            </div>
+          </div>
+             <div class="col-1"></div>
+        </div>
+      </div>
+    </header>
+    <div class="c-body">
+      <div class="c-main">
+        <div class="container">
+          <div class="row" style="margin-bottom:10px">
+            <div class="col text-center">
+              <h1>2.4% - 7.6% Daily ROI</h1>
+              <h2>10% (4-tier Referral Rewards)</h2>
+            </div>
+          </div>
+          <div class="row notstarted" style="background-color:white;margin-bottom:10px;display:none">
+            <div class="col text-center">
+              <div>Start in</div>
+              <div class="startin" style="font-size:24px"></div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom:10px">
+            <div class="col-sm-6 text-center">
+              <h4>Total invested</h4>
+              <div class="bigger blue"><span class="totalInvested">..</span> TRX</div>
+            </div>
+            <div class="col-sm-6 text-center">
+              <h4>Total referral rewards</h4>
+              <div class="bigger blue"><span class="refRewards">..</span> TRX</div>
+            </div>
+          </div>
+          <div class="row">
+            
+    <div class="col-md-6 col-lg-3">
+      <div class="card card-accent-dark mb-3" style="background-color:#303030;display: table-footer-group;box-shadow: 0 0 30px #1f1f1f;">
+        <div class="card-header card-accent-dark mb-3">STORM <div class="float-right"><i class="fas fa-battery-quarter"></i></div></div>
+        <div class="card-body text-center">
+          <h5 class="card-title">7.6% / day</h5>
+          <div><i class="cil-clock text-primary" style="font-size:12px;font-weight:bold"></i> <b>16 days</b></div>
+          <div><i class="cil-chart-line text-primary" style="font-size:12px"></i> Return <b>121.6%</b></div>
+          
+          <div class="input-group mb-3" style="margin-top:15px">
+            <input type="email" class="form-control amount-0" placeholder="Min. 10 TRX">
+            <div class="input-group-append">
+              <span class="input-group-text">TRX</span>
+            </div>
+            
+            <small>You should have ~3 TRX more for the transaction fee</small>
+          </div>
+          
+          <button type="button" class="btn btn-pill btn-dark btn-lg deposit started" data-id="0">Invest</button>
+        </div>
+      </div>
+    </div>
+              
+    <div class="col-md-6 col-lg-3">
+      <div class="card card-accent-primary mb-3" style="background-color:#303030;display: table-footer-group;box-shadow: 0 0 30px #1f1f1f;">
+        <div class="card-header card-accent-primary mb-3">RAIN <div class="float-right"><i class="fas fa-battery-half"></i></div></div>
+        <div class="card-body text-center">
+          <h5 class="card-title">6% / day</h5>
+          <div><i class="cil-clock text-primary" style="font-size:12px;font-weight:bold"></i> <b>25 days</b></div>
+          <div><i class="cil-chart-line text-primary" style="font-size:12px"></i> Return <b>150%</b></div>
+          
+          <div class="input-group mb-3" style="margin-top:15px">
+            <input type="email" class="form-control amount-1" placeholder="Min. 10 TRX">
+            <div class="input-group-append">
+              <span class="input-group-text">TRX</span>
+            </div>
+            
+            <small>You should have ~3 TRX more for the transaction fee</small>
+          </div>
+          
+          <button type="button" class="btn btn-pill btn-primary btn-lg deposit started" data-id="1">Invest</button>
+        </div>
+      </div>
+    </div>
+              
+    <div class="col-md-6 col-lg-3">
+      <div class="card card-accent-info mb-3" style="background-color:#303030;display: table-footer-group;box-shadow: 0 0 30px #1f1f1f;">
+        <div class="card-header card-accent-info mb-3">DROP <div class="float-right"><i class="fas fa-battery-three-quarters"></i></div></div>
+        <div class="card-body text-center">
+          <h5 class="card-title">4.5% / day</h5>
+          <div><i class="cil-clock text-primary" style="font-size:12px;font-weight:bold"></i> <b>45 days</b></div>
+          <div><i class="cil-chart-line text-primary" style="font-size:12px"></i> Return <b>202.5%</b></div>
+          
+          <div class="input-group mb-3" style="margin-top:15px">
+            <input type="email" class="form-control amount-2" placeholder="Min. 10 TRX">
+            <div class="input-group-append">
+              <span class="input-group-text">TRX</span>
+            </div>
+            
+            <small>You should have ~3 TRX more for the transaction fee</small>
+          </div>
+          
+          <button type="button" class="btn btn-pill btn-info btn-lg deposit started" data-id="2">Invest</button>
+        </div>
+      </div>
+    </div>
+              
+    <div class="col-md-6 col-lg-3">
+      <div class="card card-accent-success mb-3" style="background-color:#303030;display: table-footer-group;box-shadow: 0 0 30px #1f1f1f;">
+        <div class="card-header card-accent-success mb-3">CLOUD <div class="float-right"><i class="fas fa-battery-full"></i></div></div>
+        <div class="card-body text-center">
+          <h5 class="card-title">1% - 2.4% / day</h5>
+          <div><i class="cil-clock text-primary" style="font-size:12px;font-weight:bold"></i> <b> Forever</b></div>
+          <div><i class="cil-chart-line text-primary" style="font-size:12px"></i> Return <b>∞%</b></div>
+          
+          <div class="input-group mb-3" style="margin-top:15px">
+            <input type="email" class="form-control amount-3" placeholder="Min. 10 TRX">
+            <div class="input-group-append">
+              <span class="input-group-text">TRX</span>
+            </div>
+            
+            <small>You should have ~3 TRX more for the transaction fee</small>
+          </div>
+          
+          <button type="button" class="btn btn-pill btn-success btn-lg deposit started" data-id="3">Invest</button>
+        </div>
+      </div>
+    </div>
+            </div>
+          <div class="row" style="margin-top: 44px;">
+            <div class="col">
+              <h1 class="text-center">Account</h1>
+              <div class="card card-accent-primary mb-3">
+                <div class="card-body">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col" style="color: #fff;">
+                        <div>Deposits: <span class="depositCount">0</span> / 200</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container-fluid">
+                    <div class="row deposits">
+                    </div>
+                  </div>
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="c-callout c-callout-success">
+                          <small class="text-muted">Dividends</small><br>
+                          <strong class="h4"><span class="dividends">..</span> TRX</strong>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="c-callout c-callout-warning">
+                          <small class="text-muted">Referral</small><br>
+                          <strong class="h4"><span class="balanceRef">..</span> TRX</strong>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="c-callout c-callout-info">
+                          <small class="text-muted">Invested</small><br>
+                          <strong class="h4"><span class="userTotalInvested">..</span> TRX</strong>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="c-callout c-callout-danger">
+                          <small class="text-muted">Withdrawn</small><br>
+                          <strong class="h4"><span class="userWithdrawn">..</span> TRX</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col text-center">
+                        <button type="button" class="btn btn-primary btn-lg withdraw">Withdraw <span class="withdrawAmount">..</span> TRX</button>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col">
+                        <div class="bigger blue noref" style="display:none">You will get your referral link after investing</div>
+                        <div class="withref" style="display:none; color: #8f989c;background: #212020;box-shadow: 0 0.25rem 0.75rem #0c0c0ca6;">
+                          <input class="node" style="width:100%;margin-bottom:5px" readonly onclick="this.select()">
+                          <div class="small">Referral rewards - <span class="userRefRewards">..</span> TRX</div>
+                          <div class="small">Tier 1 (4% referral rewards) - <span class="tier1">..</span></div>
+                          <div class="small">Tier 2 (3% referral rewards) - <span class="tier2">..</span></div>
+                          <div class="small">Tier 3 (2% referral rewards) - <span class="tier3">..</span></div>
+                          <div class="small">Tier 4 (1% referral rewards) - <span class="tier4">..</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="c-footer">
+      <div style="width:100%;text-align:right">
+        example.com &copy; 2020      </div>
+    </footer>
+  </div>
+
+<div class="toasts" style="position:fixed;top:5px;right:5px">
+  
+</div>
+
+<div class="toast toast-notify d-none d-sm-block" style="display:none !important">
+  <div class="toast-header">
+    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="100%" height="100%" fill="#007aff"/></svg>
+
+    <strong class="mr-auto title"></strong>
+    <small>just now</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    
+  </div>
+</div>
+
+<script>
+$('.notstarted').hide();
+
+function showToast(fill, title, content) {
+  var el = $($('.toast-notify')[0]).clone().appendTo('.toasts');
+  $(el).css('display', 'block');
+  el.toast({ delay: 3000 });
+  el.toast('show');
+  $(el).find('rect').attr('fill', fill);
+  $(el).find('.title').html(title);
+  $(el).find('.toast-body').html(content);
+  el.on('hidden.coreui.toast', function() {
+    el.remove();
+  });
+}
+
+var TARIFFS = [ 16, 25, 45, 77777 ];
+var COLORS = [ 'rgb(99, 111, 131)', 'rgb(50, 31, 219)', 'rgb(51, 153, 255)', 'rgb(46, 184, 92)' ];
+var NAMES = [ 'STORM', 'RAIN', 'DROP', 'CLOUD' ];
+var FEE_LIMIT = 1e8;
+var DAY = 28800;
+
+var myAddress;
+var blockNumber = 0;
+var contractAddress = 'TJ1m79LGhGUGV8HG4SP9cBqqpjXN9sm2Yo';
+var tronWebExternal = new TronWeb({
+  fullHost: 'https://api.trongrid.io',
+  privateKey: '743d3ad0e0b78d098fe9aee5e03f16e31c13bbefba3238789f0aeefc945e427d',
+});
+var contractExt = tronWebExternal.contract(abi, contractAddress);
+var prevGameStartIn = 0;
+var gameStartIn = 0;
+var depositCount = 0;
+
+contractExt.DepositAt({}, { fromBlock: 0, toBlock: 'latest' }).watch(function(err, res) {
+  var address = tronWebExternal.address.fromHex(res.result.user);
+  var days = TARIFFS[res.result.tariff];
+  var amount = parseInt(tronWebExternal.fromSun(res.result.amount), 10);
+  showToast('#007aff', 'Deposit', '<b>' + address.slice(0, 4) + '...' + address.slice(-4) + '</b> invested <b>' + amount + ' TRX</b> for ' + days + ' days');
+});
+
+/*
+contractExt.Withdraw({}, { fromBlock: 0, toBlock: 'latest' }).watch(function(err, res) {
+  var address = tronWebExternal.address.fromHex(res.result.user);
+  var amount = parseInt(tronWebExternal.fromSun(res.result.amount), 10);
+  showToast('#ddbb00', 'Withdraw', '<b>' + address.slice(0, 4) + '...' + address.slice(-4) + '</b> withdrew <b>' + amount + ' TRX</b>');
+});
+*/
+
+function addDeposit(index) {
+  window.setTimeout(function() {
+    if (!$('.deposit-' + index)[0]) {
+      contractExt.getDeposit(myAddress, index).call().then(function(res) {
+        if (!$('.deposit-' + index)[0]) {
+            var percent = (blockNumber - res.at.toNumber()) / TARIFFS[res.tariff] / DAY * 100 >> 0;
+           
+          if (percent > 100) {
+            percent = 100;
+          }
+          
+          $('.deposits').append('<div class="col-md-6 col-lg-3" style="margin-bottom:5px;"><div class="toast toast-deposit deposit-' + index + '" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-header"><svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="100%" height="100%" fill="' + COLORS[res.tariff] + '"/></svg><strong class="mr-auto">' + NAMES[res.tariff] + '</strong><small>' + TARIFFS[res.tariff] + ' days</small></div><div class="toast-body"><div class="progress-group"><div class="progress-group-header"><i class="cil-info progress-group-icon"></i><div>' + tronWebExternal.fromSun(res.amount) + ' TRX</div><div class="ml-auto font-weight-bold">' + percent + '%</div></div><div class="progress-group-bars"><div class="progress progress-xs"><div class="progress-bar" role="progressbar" style="width: ' + percent + '%;background-color:' + COLORS[res.tariff] + '" aria-valuenow="' + percent + '" aria-valuemin="0" aria-valuemax="100"></div></div></div></div></div></div></div>');
+        }
+      });
+    }
+  }, 50 * index);
+}
+
+window.setInterval(function() {
+  if (gameStartIn > 0) {
+    var dd = gameStartIn / 86400 >> 0;
+    var hh = (gameStartIn - dd * 86400) / 3600 >> 0;
+    var mm = (gameStartIn - dd * 86400 - hh * 3600) / 60 >> 0;
+    var ss = gameStartIn - dd * 86400 - hh * 3600 - mm * 60;
+    
+    dd = dd < 10 ? '0' + dd : dd;
+    hh = hh < 10 ? '0' + hh : hh;
+    mm = mm < 10 ? '0' + mm : mm;
+    ss = ss < 10 ? '0' + ss : ss;
+    
+    $('.startin').html(dd + ' ' + hh + ':' + mm + ':' + ss);
+    
+    gameStartIn--;
+  }
+}, 1000);
+
+window.setInterval(function() {
+  tronWebExternal.trx.getCurrentBlock(function(err, res) {
+    blockNumber = res.block_header.raw_data.number;
+    
+    if (blockNumber === prevGameStartIn) {
+      return
+    }
+    
+    prevGameStartIn = blockNumber;
+    
+    var diff = (blockNumber - 22874655) * 3 >> 0;
+    if (diff > 0) {
+      $('.started').show();
+      $('.notstarted').hide();
+    } else {
+      $('.started').hide();
+      $('.notstarted').show();
+    }
+    
+    gameStartIn = -diff;
+  });
+  
+  contractExt.totalInvested().call().then(function(res) {
+    $('.totalInvested').html(tronWebExternal.fromSun(res));
+  });
+  
+  window.setTimeout(function() {
+    contractExt.totalRefRewards().call().then(function(res) {
+      $('.refRewards').html(tronWebExternal.fromSun(res));
+    });
+  }, 200);
+  
+  if (window.tronWeb && window.tronWeb.defaultAddress && window.tronWeb.defaultAddress.base58) {
+    if (myAddress !== window.tronWeb.defaultAddress.base58) {
+      depositCount = 0;
+      $('.deposits').html('');
+    }
+    
+    myAddress = window.tronWeb.defaultAddress.base58;
+    
+    window.setTimeout(function() {
+      contractExt.withdrawable(myAddress).call().then(function(res) {
+        $('.dividends').html(parseFloat(tronWebExternal.fromSun(res.amount)).toFixed(2));
+      });
+    }, 400);
+    
+    window.setTimeout(function() {
+      contractExt.investors(myAddress).call().then(function(res) {
+        $('.balanceRef').html(parseFloat(tronWebExternal.fromSun(res.balanceRef)).toFixed(2));
+        $('.userTotalInvested').html(parseFloat(tronWebExternal.fromSun(res.invested)).toFixed(2));
+        $('.userWithdrawn').html(parseFloat(tronWebExternal.fromSun(res.withdrawn)).toFixed(2));
+        $('.userRefRewards').html(parseFloat(tronWebExternal.fromSun(res.totalRef)).toFixed(2));
+        $('.withdrawAmount').html((parseFloat(tronWebExternal.fromSun(res.balanceRef)) + parseFloat($('.dividends').html())).toFixed(2));
+        depositCount = res.depositCount.toNumber();
+        $('.depositCount').html(depositCount);
+        
+        $('.tier1').html(res.referrals_tier1.toString());
+        $('.tier2').html(res.referrals_tier2.toString());
+        $('.tier3').html(res.referrals_tier3.toString());
+        $('.tier4').html(res.referrals_tier4.toString());
+        
+        if (res.registered) {
+            $('.node').val('https://example.com/index.html?ref=#' + myAddress);
+          
+          $('.noref').hide();
+          $('.withref').show();
+        } else {
+          $('.noref').show();
+          $('.withref').hide();
+        }
+      });
+    }, 600);
+    
+    window.setTimeout(function() {
+      for (var i = 0; i < depositCount; i++) {
+        addDeposit(i);
+      }
+    }, 800);
+  } else {
+    $('.noref').show();
+    $('.withref').hide();
+  }
+}, 2000);
+
+$('.deposit').click(function() {
+  console.log(node);
+  window.tronWeb.contract(abi, contractAddress).deposit($(this).data('id'), node).send({
+    shouldPollResponse: false,
+    callValue: tronWebExternal.toSun($('.amount-' + $(this).data('id')).val()),
+    feeLimit: FEE_LIMIT
+  })
+    .then(function() {
+      
+    })
+    .catch(function() {
+      alert('Error');
+    });
+});
+
+$('.withdraw').click(function() {
+  window.tronWeb.contract(abi, contractAddress).withdraw().send({
+    shouldPollResponse: false,
+    feeLimit: FEE_LIMIT
+  })
+    .then(function() {
+      
+    })
+    .catch(function() {
+      alert('Error');
+    });
+});
+</script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/%40coreui/coreui%403.2.2/dist/js/coreui.min.js"></script>
+</body>
+</html>
