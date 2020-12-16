@@ -3829,7 +3829,8 @@ html:not([dir=rtl]) .c-callout-dark {
 	-ms-flex: 1 1 auto;
 	flex: 1 1 auto;
 	min-height: 1px;
-	padding: 1.25rem
+	padding: 1.25rem;
+	background-color: #303030;
 }
 
 .card-title {
@@ -5368,7 +5369,7 @@ html:not([dir=rtl]) .dropleft .dropdown-toggle:empty::after {
 	align-items: center;
 	height: 50px;
 	padding: 0 1rem;
-	background: #ebedef;
+	background: #303030;
 	border-top: 1px solid #d8dbe0
 }
 
@@ -13434,7 +13435,10 @@ html:not([dir=rtl]) .list-inline {
 	-ms-flex-positive: 1;
 	flex-grow: 1;
 	min-width: 0;
-	padding-top: 2rem
+	padding-top: 2rem;
+	background-color: #303030;
+}
+
 }
 
 @media (min-width:768px) {
