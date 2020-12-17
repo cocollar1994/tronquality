@@ -45,11 +45,11 @@ if (ref != '') {
         <div class="row">
             <div class="col-1"></div>
             <div class="col-3" style="display:flex">
-            <a class="btn btn-primary btn-sm" target="_blank" href="https://tronscan.org/#/contract/TWeHk9S21wKgks2Vp9QuCnJ56sWH6R3n7U/code" style="margin:auto 0px">Contract (Tronscan)</a>
+            <a class="btn btn-primary btn-sm" target="_blank" href="https://tronscan.org/#/contract/TJ1m79LGhGUGV8HG4SP9cBqqpjXN9sm2Yo/code" style="margin:auto 0px">Contract (Tronscan)</a>
           </div>
             <div class="col-1"></div>
           <div class="col-3">
-            <img class="img-fluid" src="logo.png" style="margin-left:70px;" >
+            <img class="img-fluid" src="logo.jpg" style="margin-left:70px;" >
           </div>
           
           <div class="col-3" style="display:flex">
@@ -292,10 +292,10 @@ var TARIFFS = [ 8, 12, 18/*, 77777*/];
 var COLORS = [ 'rgb(99, 111, 131)', 'rgb(50, 31, 219)', 'rgb(51, 153, 255)'/*, 'rgb(46, 184, 92)' */];
 var NAMES = [ 'STORM', 'RAIN', 'DROP'/*, 'CLOUD'*/ ];
 var FEE_LIMIT = 1e8;
-var DAY = 10/*28800*/;
+var DAY = 86400/*28800*/;
 
 var myAddress;
-var blockNumber = 0;
+var blockTime = 0;
 var contractAddress = 'TWeHk9S21wKgks2Vp9QuCnJ56sWH6R3n7U';
 var tronWebExternal = new TronWeb({
   fullHost: 'https://api.shasta.trongrid.io',
@@ -326,7 +326,7 @@ function addDeposit(index) {
     if (!$('.deposit-' + index)[0]) {
       contractExt.getDeposit(myAddress, index).call().then(function(res) {
         if (!$('.deposit-' + index)[0]) {
-            var percent = (blockNumber - res.at.toNumber()) / TARIFFS[res.tariff] / DAY * 100 >> 0;
+            var percent = (blockTime - res.at.toNumber()) / TARIFFS[res.tariff] / DAY * 100 >> 0;
            
           if (percent > 100) {
             percent = 100;
@@ -358,16 +358,16 @@ window.setInterval(function() {
 }, 1000);
 
 window.setInterval(function() {
-  tronWebExternal.trx.getCurrentBlock(function(err, res) {
-    blockNumber = res.block_header.raw_data.number;
+  tronWebExternal.trx.getBlock(function(err, res) {
+    blockTime = res.block_header.raw_data.timestamp;
     
-    if (blockNumber === prevGameStartIn) {
+    if (blockTime === prevGameStartIn) {
       return
     }
     
-    prevGameStartIn = blockNumber;
+    prevGameStartIn = blockTime;
     
-    var diff = (blockNumber - 0/*22874655*/) * 3 >> 0;
+    var diff = (blockTime - 1608199181 /*22874655*/) /** 3*/ >> 0;
     if (diff > 0) {
       $('.started').show();
       $('.notstarted').hide();
