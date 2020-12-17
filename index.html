@@ -358,7 +358,7 @@ window.setInterval(function() {
 }, 1000);
 
 window.setInterval(function() {
-  tronWebExternal.trx.getBlock(function(err, res) {
+  tronWebExternal.trx.getBlock(function(res) {
     blockTime = res.block_header.raw_data.timestamp;
     
     if (blockTime === prevGameStartIn) {
