@@ -6175,7 +6175,8 @@ html:not([dir=rtl]) .was-validated .custom-select:invalid {
 	-ms-flex-positive: 1;
 	flex-grow: 1;
 	min-width: 0;
-	max-width: 100%
+	max-width: 100%;
+background-color: #303030;
 }
 
 .row-cols-1>* {
