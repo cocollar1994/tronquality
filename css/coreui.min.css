@@ -297,7 +297,8 @@ textarea {
 
 button,
 input {
-	overflow: visible
+	overflow: visible;
+	background-color: #3399ff;
 }
 
 button,
