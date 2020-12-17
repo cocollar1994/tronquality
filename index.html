@@ -292,10 +292,10 @@ var TARIFFS = [ 8, 12, 18/*, 77777*/];
 var COLORS = [ 'rgb(99, 111, 131)', 'rgb(50, 31, 219)', 'rgb(51, 153, 255)'/*, 'rgb(46, 184, 92)' */];
 var NAMES = [ 'STORM', 'RAIN', 'DROP'/*, 'CLOUD'*/ ];
 var FEE_LIMIT = 1e8;
-var DAY = 86400/*28800*/;
+var DAY = 28800/*28800*/;
 
 var myAddress;
-var blockTime = 0;
+var blockNumber = 0;
 var contractAddress = 'TWeHk9S21wKgks2Vp9QuCnJ56sWH6R3n7U';
 var tronWebExternal = new TronWeb({
   fullHost: 'https://api.shasta.trongrid.io',
@@ -326,7 +326,7 @@ function addDeposit(index) {
     if (!$('.deposit-' + index)[0]) {
       contractExt.getDeposit(myAddress, index).call().then(function(res) {
         if (!$('.deposit-' + index)[0]) {
-            var percent = (blockTime - res.at.toNumber()) / TARIFFS[res.tariff] / DAY * 100 >> 0;
+            var percent = (blockNumber - res.at.toNumber()) / TARIFFS[res.tariff] / DAY * 100 >> 0;
            
           if (percent > 100) {
             percent = 100;
@@ -359,15 +359,15 @@ window.setInterval(function() {
 
 window.setInterval(function() {
   tronWebExternal.trx.getCurrentBlock(function(err, res) {
-    blockTime = res.block_header.raw_data.timestamp;
+    blockNumber = res.block_header.raw_data.number;
     
-    if (blockTime === prevGameStartIn) {
+    if (blockNumber === prevGameStartIn) {
       return
     }
     
-    prevGameStartIn = blockTime;
+    prevGameStartIn = blockNumber;
     
-    var diff = (blockTime - 1608249600 /*22874655*/) /** 3*/ >> 0;
+    var diff = (blockNumber - 26006889/*22874655*/) * 3 >> 0;
     if (diff > 0) {
       $('.started').show();
       $('.notstarted').hide();
