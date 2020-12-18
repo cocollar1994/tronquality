@@ -8041,7 +8041,7 @@ html:not([dir=rtl]) .input-group>.input-group-prepend:not(:first-child)>.input-g
 
 .img-fluid,
 .img-thumbnail {
-	max-width: 100%;
+	max-width: 75%;
 	height: auto
 }
 
