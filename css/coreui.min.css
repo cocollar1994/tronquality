@@ -30,7 +30,7 @@
 	--dark: #636f83
 }
 
-.c-app {
+/*.c-app {
 	color: #3c4b64;
 	background-color: #ebedef;
 	--color: #3c4b64;
@@ -39,6 +39,13 @@
 	-ms-flex-direction: row;
 	flex-direction: row;
 	min-height: 100vh
+}*/
+.c-app {
+    flex-direction: row;
+    min-height: 100vh;
+    margin: 0;
+    background: url(../bg.jpg) center repeat;
+    background-size: 250% 105%;
 }
 
 *,
@@ -6177,7 +6184,7 @@ html:not([dir=rtl]) .was-validated .custom-select:invalid {
 	flex-grow: 1;
 	min-width: 0;
 	max-width: 100%;
-background-color: #303030;
+/*background-color: #303030;*/
 }
 
 .row-cols-1>* {
@@ -13439,7 +13446,7 @@ html:not([dir=rtl]) .list-inline {
 	flex-grow: 1;
 	min-width: 0;
 	padding-top: 2rem;
-	background-color: #303030;
+	/*background-color: #303030;*/
 }
 
 }
