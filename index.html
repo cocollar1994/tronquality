@@ -301,7 +301,7 @@ var myAddress;
 var blockNumber = 0;
 var contractAddress = 'TA6PSWuiYuAQi2VTdHMMcXMSPj2arg2LuQ';
 var tronWebExternal = new TronWeb({
-  fullHost: 'https://api.shasta.trongrid.io',
+  fullHost: 'https://api.trongrid.io',
   privateKey: '743d3ad0e0b78d098fe9aee5e03f16e31c13bbefba3238789f0aeefc945e427d',
 });
 var contractExt = tronWebExternal.contract(abi, contractAddress);
@@ -370,7 +370,7 @@ window.setInterval(function() {
     
     prevGameStartIn = blockNumber;
     
-    var diff = (blockNumber - 20698220/*22874655*/) * 3 >> 0;
+    var diff = (blockNumber - 26115251/*22874655*/) * 3 >> 0;
     if (diff > 0) {
       $('.started').show();
       $('.notstarted').hide();
