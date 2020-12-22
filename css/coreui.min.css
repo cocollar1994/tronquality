@@ -40,12 +40,19 @@
 	flex-direction: row;
 	min-height: 100vh
 }*/
-.c-app {
+/*.c-app {
     flex-direction: row;
     min-height: 100vh;
     margin: 0;
     background: url(../bg.jpg) center repeat;
     background-size: 250% 105%;
+}*/
+.c-app {
+    flex-direction: row;
+    min-height: 100vh;
+    margin: 0;
+    background: url(../bg.jpg) center repeat;
+    background-size: 100% 100%;
 }
 
 *,
