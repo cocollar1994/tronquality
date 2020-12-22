@@ -6039,12 +6039,17 @@ html:not([dir=rtl]) .was-validated .custom-select:invalid {
 .container-md,
 .container-sm,
 .container-xl {
-	width: 100%;
+	/*width: 100%;
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto;
-	background-color: #303030
+	background-color: #303030*/
+	
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	
 }
 
 @media (min-width:576px) {
@@ -7252,7 +7257,7 @@ html:not([dir=rtl]) .was-validated .custom-select:invalid {
 	padding: 0 30px
 }
 
-.c-header {
+/*.c-header {
 	position: relative;
 	display: -ms-flexbox;
 	display: flex;
@@ -7265,6 +7270,14 @@ html:not([dir=rtl]) .was-validated .custom-select:invalid {
 	min-height: 56px;
 	background: #fff;
 	border-bottom: 1px solid #d8dbe0
+}*/
+.c-header {
+    position: relative;
+    display: contents;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    min-height: 56px;
 }
 
 .c-header[class*=bg-] {
