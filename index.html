@@ -45,7 +45,7 @@ if (ref != '') {
         <div class="row">
             <div class="col-1"></div>
             <div class="col-3" style="display:flex">
-            <a class="btn btn-primary btn-sm" target="_blank" href="https://tronscan.org/#/contract/TAxG7mRVEwBHWcgV5oc16ewXHqBwa6kUBZ/code" style="margin:auto 0px">Contract (Tronscan)</a>            
+            <a class="btn btn-primary btn-sm" target="_blank" href="https://tronscan.org/#/contract/TRxqdeFkZM1nMLNN8329pT58eiYStQEXDH/code" style="margin:auto 0px">Contract (Tronscan)</a>            
           </div>
             <div class="col-1">
               <a class="btn btn-primary btn-sm" target="_blank" href="../WPTQ.pdf" style="margin:auto 0px">Whitepaper</a>
@@ -295,13 +295,13 @@ var TARIFFS = [ 8, 12, 18/*, 77777*/];
 var COLORS = [ 'rgb(99, 111, 131)', 'rgb(50, 31, 219)', 'rgb(51, 153, 255)'/*, 'rgb(46, 184, 92)' */];
 var NAMES = [ 'STORM', 'RAIN', 'DROP'/*, 'CLOUD'*/ ];
 var FEE_LIMIT = 1e8;
-var DAY = 3/*28800*/;
+var DAY = 28800;
 
 var myAddress;
 var blockNumber = 0;
-var contractAddress = 'TAxG7mRVEwBHWcgV5oc16ewXHqBwa6kUBZ';
+var contractAddress = 'TRxqdeFkZM1nMLNN8329pT58eiYStQEXDH';
 var tronWebExternal = new TronWeb({
-  fullHost: 'https://api.shasta.trongrid.io',
+  fullHost: 'https://api.trongrid.io',
   privateKey: '743d3ad0e0b78d098fe9aee5e03f16e31c13bbefba3238789f0aeefc945e427d',
 });
 var contractExt = tronWebExternal.contract(abi, contractAddress);
